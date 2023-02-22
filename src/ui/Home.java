@@ -1,29 +1,24 @@
 package ui;
 
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
-import auto.test;
-import auto.checkKey;
-
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-
 import java.awt.Font;
-import java.awt.Frame;
-
-import javax.swing.SpringLayout;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JPasswordField;
-import javax.swing.SwingConstants;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SpringLayout;
+import javax.swing.SwingConstants;
+import javax.swing.WindowConstants;
+import javax.swing.border.EmptyBorder;
+
+import auto.checkKey;
 
 public class Home extends JFrame {
 
@@ -37,14 +32,15 @@ public class Home extends JFrame {
 	public static void main(String[] args) {
 		checkKey ckey = new checkKey();
 		EventQueue.invokeLater(new Runnable() {
+			@Override
 			public void run() {
 				try {
 					// Kiem tra phai lan dau nhap keys khong
 					if (ckey.cUuid()) {
-						
+
 						  setting framesetting = new setting();
 						  framesetting.setVisible(true);
-						 
+
 					} else {
 						Home frame = new Home();
 						frame.setVisible(true);
@@ -61,7 +57,7 @@ public class Home extends JFrame {
 	 * Create the frame.
 	 */
 	public Home() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setBounds(100, 100, 427, 233);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -85,7 +81,7 @@ public class Home extends JFrame {
 		contentPane.add(lblNewLabel_1);
 
 		keyvalue = new JTextField();
-		
+
 		keyvalue.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
@@ -102,6 +98,7 @@ public class Home extends JFrame {
 		sl_contentPane.putConstraint(SpringLayout.NORTH, submitbt, 31, SpringLayout.SOUTH, keyvalue);
 		sl_contentPane.putConstraint(SpringLayout.EAST, submitbt, -168, SpringLayout.EAST, contentPane);
 		submitbt.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				checkKey ckey = new checkKey();
 				// Lay key nguoi dung nhap

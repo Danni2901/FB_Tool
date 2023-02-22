@@ -10,7 +10,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.server.browserlaunchers.DrivenSeleniumLauncher;
 
 public class comment {
 
@@ -59,7 +58,7 @@ public class comment {
 				((JavascriptExecutor) driver).executeScript("window.open('" + link + "','_blank');");
 				Thread.sleep(delay);
 				// close new tab
-				ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+				ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
 				driver.switchTo().window(tabs.get(1));
 				// Random in Array
 				int value = rd.nextInt(numCmt);
@@ -68,7 +67,7 @@ public class comment {
 				cmtTxt.sendKeys(arrCmt[value]);
 				cmtTxt.submit();
 				Thread.sleep(delay);
-				
+
 				// Done and Close driver.
 				driver.close();
 				// back line tab main
@@ -84,7 +83,7 @@ public class comment {
 			WebElement newpost = driver.findElement(By.xpath("//*[@id=\"m_group_stories_container\"]/div/a"));
 			String refest = newpost.getAttribute("href");
 			driver.get(refest);
-			
+
 			//Get URL and go to m.fb
 			Thread.sleep(delay);
 			String link2 = driver.getCurrentUrl();

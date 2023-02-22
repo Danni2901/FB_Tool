@@ -1,38 +1,29 @@
 package ui;
 
-import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
+import javax.swing.ButtonGroup;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JRadioButton;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.SpringLayout;
+import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
 import auto.comment;
 import auto.test;
-
-import javax.swing.SpringLayout;
-import javax.swing.JLabel;
-import java.awt.Font;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import javax.swing.JRadioButton;
-import javax.swing.ButtonGroup;
-import javax.swing.JTextPane;
-import javax.swing.JList;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.UIManager;
-import java.awt.Color;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JPasswordField;
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JFormattedTextField;
-import java.awt.Choice;
-import javax.swing.SwingConstants;
-import javax.swing.JTextArea;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 public class setting extends JFrame {
 
@@ -54,7 +45,7 @@ public class setting extends JFrame {
 	 */
 	public setting() {
 		setResizable(false);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setBounds(100, 100, 457, 506);
 		settingpanel = new JPanel();
 		settingpanel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -153,26 +144,26 @@ public class setting extends JFrame {
 		sl_settingpanel.putConstraint(SpringLayout.WEST, fcomment, 0, SpringLayout.WEST, btcomment);
 		settingpanel.add(fcomment);
 		fcomment.setColumns(10);
-		
+
 		JComboBox numPost = new JComboBox();
 		sl_settingpanel.putConstraint(SpringLayout.NORTH, numPost, 6, SpringLayout.SOUTH, lblNewLabel_8);
 		sl_settingpanel.putConstraint(SpringLayout.WEST, numPost, 212, SpringLayout.WEST, settingpanel);
 		sl_settingpanel.putConstraint(SpringLayout.EAST, numPost, -7, SpringLayout.EAST, lblNewLabel);
 		numPost.setModel(new DefaultComboBoxModel(new String[] {"7", "14", "21", "28", "35", "42", "49", "56", "63", "70"}));
 		settingpanel.add(numPost);
-		
+
 		JLabel lblNewLabel_5 = new JLabel("Delay Steps ( S ):");
 		sl_settingpanel.putConstraint(SpringLayout.WEST, lblNewLabel_8, 0, SpringLayout.WEST, lblNewLabel_5);
 		sl_settingpanel.putConstraint(SpringLayout.WEST, delay, 17, SpringLayout.EAST, lblNewLabel_5);
 		sl_settingpanel.putConstraint(SpringLayout.NORTH, lblNewLabel_5, 4, SpringLayout.NORTH, delay);
 		sl_settingpanel.putConstraint(SpringLayout.EAST, lblNewLabel_5, 0, SpringLayout.EAST, lblNewLabel_4);
 		settingpanel.add(lblNewLabel_5);
-		
+
 		JLabel lblNewLabel_9 = new JLabel("Number post :");
 		sl_settingpanel.putConstraint(SpringLayout.NORTH, lblNewLabel_9, 10, SpringLayout.SOUTH, lblNewLabel_8);
 		sl_settingpanel.putConstraint(SpringLayout.EAST, lblNewLabel_9, -46, SpringLayout.WEST, numPost);
 		settingpanel.add(lblNewLabel_9);
-		
+
 		JLabel lblNewLabel_6 = new JLabel("_____________________________________________");
 		sl_settingpanel.putConstraint(SpringLayout.EAST, fcomment, 56, SpringLayout.EAST, lblNewLabel_6);
 		sl_settingpanel.putConstraint(SpringLayout.NORTH, lblNewLabel_7, 40, SpringLayout.SOUTH, lblNewLabel_6);
@@ -181,25 +172,26 @@ public class setting extends JFrame {
 		sl_settingpanel.putConstraint(SpringLayout.NORTH, btcomment, 6, SpringLayout.SOUTH, lblNewLabel_6);
 		sl_settingpanel.putConstraint(SpringLayout.EAST, lblNewLabel_6, -61, SpringLayout.EAST, settingpanel);
 		settingpanel.add(lblNewLabel_6);
-		
+
 		JComboBox delaycmt = new JComboBox();
 		sl_settingpanel.putConstraint(SpringLayout.NORTH, delaycmt, 34, SpringLayout.SOUTH, lblNewLabel_8);
 		sl_settingpanel.putConstraint(SpringLayout.EAST, delaycmt, -138, SpringLayout.EAST, settingpanel);
 		delaycmt.setModel(new DefaultComboBoxModel(new String[] {"1", "3", "5", "10", "30", "60", "120", "480", "960"}));
 		delaycmt.setSelectedIndex(2);
 		settingpanel.add(delaycmt);
-		
+
 		JLabel lblNewLabel_10 = new JLabel("Delay Steps (S) :");
 		sl_settingpanel.putConstraint(SpringLayout.EAST, lblNewLabel_10, -241, SpringLayout.EAST, settingpanel);
 		sl_settingpanel.putConstraint(SpringLayout.WEST, delaycmt, 6, SpringLayout.EAST, lblNewLabel_10);
 		sl_settingpanel.putConstraint(SpringLayout.NORTH, lblNewLabel_10, 4, SpringLayout.NORTH, delaycmt);
 		settingpanel.add(lblNewLabel_10);
-		
+
 		JButton btstart = new JButton("Start");
 		sl_settingpanel.putConstraint(SpringLayout.WEST, btstart, 160, SpringLayout.WEST, settingpanel);
 		sl_settingpanel.putConstraint(SpringLayout.SOUTH, btstart, -1, SpringLayout.SOUTH, settingpanel);
 		sl_settingpanel.putConstraint(SpringLayout.EAST, btstart, 264, SpringLayout.WEST, settingpanel);
 		btstart.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// get value from swings
 				String numP = numPost.getSelectedItem().toString();
@@ -217,12 +209,12 @@ public class setting extends JFrame {
 					JOptionPane.showMessageDialog(null, "Id Group is not null !");
 				} else if (btcomment.isSelected()) {
 
-						if(fcomment.getText().equals("")) 
+						if(fcomment.getText().equals(""))
 						{
 							JOptionPane.showMessageDialog(null, "Comment content is not null !");
-	
+
 						}else {
-								
+
 								//display comment panel
 								try {
 									comment.main(funame, fpword, fid, timecmt, cMent, numP);
@@ -230,18 +222,18 @@ public class setting extends JFrame {
 									System.out.println(e1.toString());
 									JOptionPane.showMessageDialog(null, "Browser Closed !");
 								}
-							
+
 						}
 
 				} else if (btaddfriend.isSelected()) {
 							//display add friend panel
 							try {
-								test.main(funame, fpword, fid, numem, delaytime);	
+								test.main(funame, fpword, fid, numem, delaytime);
 							} catch (Exception e2) {
 								System.out.println(e2.toString());
 								JOptionPane.showMessageDialog(null, "Browser Closed !");
 							}
-							
+
 				} else {
 					JOptionPane.showMessageDialog(null, "Please choice action !");
 				}
@@ -249,6 +241,6 @@ public class setting extends JFrame {
 		});
 		settingpanel.add(btstart);
 
-		
+
 	}
 }

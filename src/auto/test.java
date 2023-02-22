@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.JavascriptExecutor;
 
 public class test {
 
@@ -49,14 +49,14 @@ public class test {
 		for (int j = 0; j < maxmem; j++) {
 			Thread.sleep(delay);
 			List<WebElement> elements = driver.findElements(By.linkText("Add Friend"));
-			for (int i = 0; i < elements.size(); i++) {
+			for (WebElement element : elements) {
 				// get link
-				link = elements.get(i).getAttribute("href");
+				link = element.getAttribute("href");
 				// open add friend new tab
 				((JavascriptExecutor) driver).executeScript("window.open('" + link + "','_blank');");
 				Thread.sleep(delay);
 				// close new tab
-				ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+				ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
 				driver.switchTo().window(tabs.get(1));
 				driver.close();
 				// back line tab main

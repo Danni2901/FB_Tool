@@ -20,16 +20,16 @@ public class GetHardwareInfo {
    		System.out.print("Current MAC address : ");
    		StringBuilder sb = new StringBuilder();
    		for (int i = 0; i < mac.length; i++) {
-   			sb.append(String.format("%02X%s", mac[i], (i < mac.length - 1) ? "-" : ""));		
+   			sb.append(String.format("%02X%s", mac[i], (i < mac.length - 1) ? "-" : ""));
    		}
    		uuid = sb.toString();
    		System.out.println(uuid);
-   			
+
    	} catch (UnknownHostException e) {
    		e.printStackTrace();
-   		
-   	} catch (SocketException e){	
-   		e.printStackTrace();	
+
+   	} catch (SocketException e){
+   		e.printStackTrace();
    	}
        return uuid;
    }
@@ -38,5 +38,5 @@ public class GetHardwareInfo {
        GetHardwareInfo getHardwareInfo = new GetHardwareInfo();
        System.out.println(getHardwareInfo.printComputerSystemProductInfo());
    }
- 
+
 }

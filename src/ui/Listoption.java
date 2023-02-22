@@ -1,17 +1,15 @@
 package ui;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JButton;
-import javax.swing.JMenuItem;
-import javax.swing.JRadioButtonMenuItem;
 import java.awt.Choice;
-import javax.swing.JLabel;
+import java.awt.EventQueue;
 import java.awt.Font;
-import java.awt.event.*;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.WindowConstants;
+import javax.swing.border.EmptyBorder;
 
 public class Listoption extends JFrame {
 
@@ -22,6 +20,7 @@ public class Listoption extends JFrame {
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
+			@Override
 			public void run() {
 				try {
 					Listoption frame = new Listoption();
@@ -37,7 +36,7 @@ public class Listoption extends JFrame {
 	 * Create the frame.
 	 */
 	public Listoption() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -48,12 +47,12 @@ public class Listoption extends JFrame {
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblNewLabel.setBounds(153, 50, 126, 20);
 		contentPane.add(lblNewLabel);
-		
+
 		Choice choice = new Choice();
 		choice.setBounds(113, 103, 214, 30);
-	
+
 		contentPane.add(choice);
-		
+
 		JButton btnNewButton = new JButton("OK");
 		btnNewButton.setBounds(170, 154, 89, 23);
 		contentPane.add(btnNewButton);
