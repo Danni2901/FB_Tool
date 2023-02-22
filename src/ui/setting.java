@@ -63,7 +63,7 @@ public class setting extends JFrame {
 		SpringLayout sl_settingpanel = new SpringLayout();
 		settingpanel.setLayout(sl_settingpanel);
 
-		JLabel lblNewLabel = new JLabel("Control Account");
+		JLabel lblNewLabel = new JLabel("Group Control ");
 		sl_settingpanel.putConstraint(SpringLayout.NORTH, lblNewLabel, 10, SpringLayout.NORTH, settingpanel);
 		sl_settingpanel.putConstraint(SpringLayout.EAST, lblNewLabel, -138, SpringLayout.EAST, settingpanel);
 		lblNewLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 20));

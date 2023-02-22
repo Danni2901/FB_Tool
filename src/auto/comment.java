@@ -12,14 +12,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.server.browserlaunchers.DrivenSeleniumLauncher;
 
-
 public class comment {
 
 	public static void main(String funame, String fpword, String fid, String delaytime, String fcmt, String numpost)
 			throws InterruptedException {
 		// TODO Auto-generated method stub
 		String cmt = fcmt;
-		// Cat chuoi luu vao mang
+		//Cut String and Save to array
 		String[] arrCmt = cmt.split("\\/");
 
 		// set value
@@ -30,7 +29,7 @@ public class comment {
 		String groupid = fid;
 		int delay = Integer.parseInt(delaytime) * 1000;
 		String link ="";
-		System.setProperty("webdriver.chrome.driver", "/Applications/FBTool/chromedriver");
+		System.setProperty("webdriver.chrome.driver", "C:\\FB_Tool\\chromedriver.exe");
 		// only chrome version 105.0.5
 		ChromeOptions options = new ChromeOptions();
 		// set chrome as Headless
@@ -42,12 +41,10 @@ public class comment {
 		// set data
 		WebElement emailTxt = driver.findElement(By.name("email"));
 		WebElement passTxt = driver.findElement(By.name("pass"));
-
 		emailTxt.sendKeys(username);
 		passTxt.sendKeys(password);
 		Thread.sleep(delay);
 		emailTxt.submit();
-
 		Thread.sleep(delay);
 		driver.get("https://m.facebook.com/groups/" + groupid);
 		Thread.sleep(delay);
@@ -64,31 +61,31 @@ public class comment {
 				// close new tab
 				ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 				driver.switchTo().window(tabs.get(1));
-				// Random trong mang
+				// Random in Array
 				int value = rd.nextInt(numCmt);
-				// Gan noi dung cmt len input va submit
+				// Set Commment and submit
 				WebElement cmtTxt = driver.findElement(By.id("composerInput"));
 				cmtTxt.sendKeys(arrCmt[value]);
 				cmtTxt.submit();
 				Thread.sleep(delay);
 				
-				// Xong phien lam viec, dong cua so hien tai
+				// Done and Close driver.
 				driver.close();
 				// back line tab main
 				driver.switchTo().window(tabs.get(0));
 				Thread.sleep(delay);
 			}
-			//sang mbasic moi
+			// go to new Mbasic Tab
 			String linkht = driver.getCurrentUrl();
 			 String linkmbasic = (AddCharAt(linkht, 9));
 		     driver.get(linkmbasic);
-		     //chuyen page
+		     //Next Page
 			Thread.sleep(delay);
 			WebElement newpost = driver.findElement(By.xpath("//*[@id=\"m_group_stories_container\"]/div/a"));
 			String refest = newpost.getAttribute("href");
 			driver.get(refest);
 			
-			//get url hien tai chuyen sang m.fb
+			//Get URL and go to m.fb
 			Thread.sleep(delay);
 			String link2 = driver.getCurrentUrl();
 		    String newlink = (removeCharAt(link2, 9));
@@ -99,8 +96,6 @@ public class comment {
 	  public static String removeCharAt(String s, int pos) {
 	      return s.substring(0, pos) + s.substring(pos + 5);
 	   }
-	 
-    
       public static String AddCharAt(String s, int pos) {
 	      return  "https://mbasic" + s.substring(pos + 0);
 	   }

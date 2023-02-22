@@ -23,11 +23,11 @@ public class test {
 		delay = delay * 1000;
 		String link = "";
 		String linkview = "";
-		System.setProperty("webdriver.chrome.driver", "/Applications/FBTool/chromedriver");
+		System.setProperty("webdriver.chrome.driver", "C:\\FB_Tool\\chromedriver.exe");
 		// Using get() method to open a web page
-		//ChromeOptions options = new ChromeOptions();
+		ChromeOptions options = new ChromeOptions();
 		// set chrome as Headless
-		//options.addArguments("--headless");
+		options.addArguments("--headless");
 		WebDriver driver = new ChromeDriver();
 		// get link
 		driver.get("https://www.facebook.com/");
@@ -42,13 +42,11 @@ public class test {
 			emailTxt.submit();
 		}
 		Thread.sleep(delay);
-
 		driver.get("https://mbasic.facebook.com/groups/" + groupid + "/members");
 		Thread.sleep(delay);
 		driver.get("https://mbasic.facebook.com/browse/group/members/?id=" + groupid
 				+ "&start=0&listType=list_nonfriend_nonadmin");
 		for (int j = 0; j < maxmem; j++) {
-
 			Thread.sleep(delay);
 			List<WebElement> elements = driver.findElements(By.linkText("Add Friend"));
 			for (int i = 0; i < elements.size(); i++) {
