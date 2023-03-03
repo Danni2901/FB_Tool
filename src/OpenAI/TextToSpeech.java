@@ -22,7 +22,7 @@ public class TextToSpeech {
 		MediaType mediaType = MediaType.parse("text/plain");
 		RequestBody body = RequestBody.create(mediaType, Text);
 		Request request = new Request.Builder().url("https://api.fpt.ai/hmi/tts/v5").method("POST", body)
-				.addHeader("api-key", "UaxiFMFPi8JXIu1BwZvPvFFgxgxjajmK").addHeader("speed", "")
+				.addHeader("api-key", "'Key of FPT' ").addHeader("speed", "")
 				.addHeader("voice", "minhquang").build();
 		Response response = client.newCall(request).execute();
 		if (response.isSuccessful()) {

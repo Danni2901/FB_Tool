@@ -13,7 +13,7 @@ public class ChatCompletionExample {
         Request request = new Request.Builder()
           .url("https://api.openai.com/v1/chat/completions")
           .post(body)
-          .addHeader("Authorization", "Bearer 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")
+          .addHeader("Authorization", "Bearer 'key of OpenAI' ")
           .addHeader("Content-Type", "application/json")
           .build();
         try {
