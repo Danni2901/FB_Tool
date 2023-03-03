@@ -45,7 +45,7 @@ public class setting extends JFrame {
 	 */
 	public setting() {
 		setResizable(false);
-		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 457, 506);
 		settingpanel = new JPanel();
 		settingpanel.setBorder(new EmptyBorder(5, 5, 5, 5));

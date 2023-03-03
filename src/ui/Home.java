@@ -38,8 +38,8 @@ public class Home extends JFrame {
 					// Kiem tra phai lan dau nhap keys khong
 					if (ckey.cUuid()) {
 
-						  setting framesetting = new setting();
-						  framesetting.setVisible(true);
+						Listoption listoption = new Listoption();
+						listoption.setVisible(true);
 
 					} else {
 						Home frame = new Home();
@@ -57,7 +57,7 @@ public class Home extends JFrame {
 	 * Create the frame.
 	 */
 	public Home() {
-		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 427, 233);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
