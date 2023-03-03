@@ -10,7 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-public class test {
+public class AddFriend {
 
 	public static void main(String funame, String fpword, String fid, String num, String delaytime) throws Exception {
 

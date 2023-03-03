@@ -23,7 +23,7 @@ import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
 import auto.comment;
-import auto.test;
+import auto.AddFriend;
 
 public class setting extends JFrame {
 
@@ -228,7 +228,7 @@ public class setting extends JFrame {
 				} else if (btaddfriend.isSelected()) {
 							//display add friend panel
 							try {
-								test.main(funame, fpword, fid, numem, delaytime);
+								AddFriend.main(funame, fpword, fid, numem, delaytime);
 							} catch (Exception e2) {
 								System.out.println(e2.toString());
 								JOptionPane.showMessageDialog(null, "Browser Closed !");
