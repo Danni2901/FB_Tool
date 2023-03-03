@@ -16,13 +16,14 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-public class TextToSpeech {
+public class TextToSpeech extends KeyApi{
 	public void Speech(String Text) throws IOException {
+	KeyApi keyApi = new KeyApi();
 		OkHttpClient client = new OkHttpClient().newBuilder().build();
 		MediaType mediaType = MediaType.parse("text/plain");
 		RequestBody body = RequestBody.create(mediaType, Text);
 		Request request = new Request.Builder().url("https://api.fpt.ai/hmi/tts/v5").method("POST", body)
-				.addHeader("api-key", "'Key of FPT' ").addHeader("speed", "")
+				.addHeader("api-key", keyApi.getKeyFPT()).addHeader("speed", "")
 				.addHeader("voice", "minhquang").build();
 		Response response = client.newCall(request).execute();
 		if (response.isSuccessful()) {
@@ -44,7 +45,12 @@ public class TextToSpeech {
 //					}
 				// Create a new request to download the file
 				Request downloadRequest = new Request.Builder().url(asyncLink).build();
-
+	            try {
+					Thread.sleep(100);
+				} catch (InterruptedException e1) {
+					// TODO Auto-generated catch block
+					System.out.println("Loi o day");
+				}
 				Response downloadResponse = client.newCall(downloadRequest).execute();
 				if (downloadResponse.isSuccessful()) {
 

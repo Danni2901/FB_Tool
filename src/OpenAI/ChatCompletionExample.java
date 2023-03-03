@@ -3,8 +3,9 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import okhttp3.*;
 
-public class ChatCompletionExample {
+public class ChatCompletionExample{
     public String OpenAI(String question) {
+	KeyApi keyApi = new KeyApi();
     	String  answer = "";
         OkHttpClient client = new OkHttpClient();
         ObjectMapper mapper = new ObjectMapper();
@@ -13,7 +14,7 @@ public class ChatCompletionExample {
         Request request = new Request.Builder()
           .url("https://api.openai.com/v1/chat/completions")
           .post(body)
-          .addHeader("Authorization", "Bearer 'key of OpenAI' ")
+          .addHeader("Authorization","Bearer "+ keyApi.getKeyOpenAI())
           .addHeader("Content-Type", "application/json")
           .build();
         try {

@@ -92,7 +92,7 @@ public class Chatwithbot extends JFrame {
 					System.out.println("Input string does not contain any special character.");
 					ChatCompletionExample chat = new ChatCompletionExample();
 					String result = "";
-					String raw = chat.OpenAI(txtAsk.getText()).toString();
+					String raw = chat.OpenAI(inputString);
 					String[] words = raw.split(" ");
 					for (int i = 0; i < words.length; i++) {
 						if (words[i].endsWith(".")) {
